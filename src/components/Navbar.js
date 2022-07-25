@@ -56,7 +56,7 @@ const MenuItem = styled.div`
   margin-left: 25px;
 `;
 
-export default function Navbar() {
+const Navbar = () => {
   return (
     <Container>
       <Wrapper>
@@ -82,4 +82,6 @@ export default function Navbar() {
       </Wrapper>
     </Container>
   );
-}
+};
+
+export default Navbar;
