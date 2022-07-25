@@ -1,5 +1,12 @@
 import React from "react";
+import Announcement from "../components/Announcement";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
-  return <div>Hello this is my last portfolio before I get a job</div>;
+  return (
+    <div>
+      <Announcement />
+      <Navbar />
+    </div>
+  );
 }
