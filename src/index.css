@@ -10,3 +10,7 @@ li,
 ol {
   list-style: none;
 }
+input,
+button {
+  border: none;
+}
