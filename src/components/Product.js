@@ -4,6 +4,7 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
+import { mobile } from "../responsive";
 
 const Info = styled.div`
   opacity: 0;
@@ -34,6 +35,7 @@ const Container = styled.div`
   &:hover ${Info} {
     opacity: 1;
   }
+  ${mobile({ minWidth: "280px" })}
 `;
 
 const Circle = styled.div`

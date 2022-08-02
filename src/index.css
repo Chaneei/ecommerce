@@ -13,3 +13,6 @@ ol {
 input {
   border: none;
 }
+img {
+  border: 0;
+}

@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import Products from "../components/Products";
 import Footer from "../components/Footer";
+import { mobile } from "../responsive";
 
 const Container = styled.div``;
 const Title = styled.h1`
@@ -16,16 +17,19 @@ const FilterContainer = styled.div`
 `;
 const Filter = styled.div`
   margin: 20px;
+  ${mobile({ width: "0px 20px", display: "flex", flexDirection: "column" })}
 `;
 const FilterText = styled.span`
   font-size: 20px;
   margin-right: 10px;
   font-weight: 600;
+  ${mobile({ marginRight: "0px" })}
 `;
 
 const Select = styled.select`
   padding: 10px;
   margin-right: 10px;
+  ${mobile({ margin: "5px 0px" })}
 `;
 const Option = styled.option``;
 
@@ -40,7 +44,7 @@ const ProductList = () => {
           <FilterText>Filter Products:</FilterText>
           <Select>
             <Option disabled selected>
-              q Color
+              Color
             </Option>
             <Option>White</Option>
             <Option>Black</Option>
