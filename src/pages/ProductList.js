@@ -6,8 +6,10 @@ import Newsletter from "../components/Newsletter";
 import Products from "../components/Products";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
+import { useLocation } from "react-router-dom";
 
 const Container = styled.div``;
+
 const Title = styled.h1`
   margin: 20px;
 `;
@@ -34,6 +36,9 @@ const Select = styled.select`
 const Option = styled.option``;
 
 const ProductList = () => {
+  const location = useLocation();
+  const cat = location.pathname.split("/")[2];
+  const [filter, setFilters] = useState({});
   return (
     <Container>
       <Navbar />

@@ -1,6 +1,7 @@
 import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 
@@ -47,6 +48,7 @@ const Center = styled.div`
 const Logo = styled.h1`
   font-weight: 700;
   ${mobile({ fontSize: "24px" })}
+  cursor: pointer;
 `;
 
 const Right = styled.div`
@@ -65,6 +67,10 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const clickHandler = () => {
+    navigate("/");
+  };
   return (
     <Container>
       <Wrapper>
@@ -76,7 +82,7 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>CHAN.</Logo>
+          <Logo onClick={clickHandler}>CHAN.</Logo>
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>
