@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import {
   FavoriteBorderOutlined,
   SearchOutlined,
@@ -19,23 +20,22 @@ const Info = styled.div`
   align-items: center;
   justify-content: center;
   transition: all 0.5s ease;
+  cursor: pointer;
 `;
 
 const Container = styled.div`
   flex: 1;
   margin: 5px;
-  min-width: 30%;
+  min-width: 280px;
   height: 350px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   background-color: #f5fbfd;
   position: relative;
-
   &:hover ${Info} {
     opacity: 1;
   }
-  ${mobile({ minWidth: "280px" })}
 `;
 
 const Circle = styled.div`
@@ -45,6 +45,7 @@ const Circle = styled.div`
   background-color: white;
   position: absolute;
 `;
+
 const Image = styled.img`
   height: 75%;
   z-index: 2;
@@ -60,7 +61,6 @@ const Icon = styled.div`
   justify-content: center;
   margin: 10px;
   transition: all 0.5s ease;
-
   &:hover {
     background-color: #e9f5f5;
     transform: scale(1.1);
@@ -76,7 +76,9 @@ const Product = ({ item }) => {
           <ShoppingCartOutlined />
         </Icon>
         <Icon>
-          <SearchOutlined />
+          <Link to={`/product/${item._id}`}>
+            <SearchOutlined />
+          </Link>
         </Icon>
         <Icon>
           <FavoriteBorderOutlined />

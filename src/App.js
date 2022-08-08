@@ -29,7 +29,7 @@ function App() {
           {user ? (
             <Route path="/register" element={<Navigate replace to="/" />} />
           ) : (
-            <Route path="/register" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           )}
         </Routes>
       </Router>
