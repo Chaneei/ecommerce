@@ -69,6 +69,13 @@ const MenuItem = styled.div`
 
 const Navbar = () => {
   const navigate = useNavigate();
+
+  const clickRegister = () => {
+    navigate("/register");
+  };
+  const clickLogin = () => {
+    navigate("/login");
+  };
   const clickHandler = () => {
     navigate("/");
   };
@@ -88,8 +95,8 @@ const Navbar = () => {
           <Logo onClick={clickHandler}>CHAN.</Logo>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>LOGIN</MenuItem>
+          <MenuItem onClick={clickRegister}>REGISTER</MenuItem>
+          <MenuItem onClick={clickLogin}>LOGIN</MenuItem>
           <Link to="/cart">
             <MenuItem>
               <Badge badgeContent={quantity} color="primary">
