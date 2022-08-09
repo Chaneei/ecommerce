@@ -1,10 +1,13 @@
 import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
-import { useSelector } from "react-redux";
+import { login } from "../redux/apiCalls";
+import { logOut } from "../redux/userRedux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { removeProduct } from "../redux/cartRedux";
 
 const Container = styled.div`
   height: 60px;
@@ -68,6 +71,14 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+  const user = useSelector((state) => state.user.currentUser);
+  const dispatch = useDispatch();
+
+  const clickLogout = () => {
+    dispatch(logOut());
+    dispatch(removeProduct());
+    alert("Logout Successful");
+  };
   const navigate = useNavigate();
 
   const clickRegister = () => {
@@ -85,7 +96,7 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Language>KO</Language>
+          <Language>ENG</Language>
           <SearchContainer>
             <Input placeholder="Search" />
             <Search style={{ color: "gray", fontSize: "1rem" }} />
@@ -104,6 +115,7 @@ const Navbar = () => {
               </Badge>
             </MenuItem>
           </Link>
+          {user ? <MenuItem onClick={clickLogout}>LOGOUT</MenuItem> : null}
         </Right>
       </Wrapper>
     </Container>

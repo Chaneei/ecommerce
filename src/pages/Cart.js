@@ -9,6 +9,7 @@ import StripeCheckout from "react-stripe-checkout";
 import { useEffect, useState } from "react";
 import { userRequest } from "../requestMethods";
 import { useNavigate } from "react-router-dom";
+import { removeProduct } from "../redux/cartRedux";
 const KEY = process.env.REACT_APP_STRIPE;
 
 const Container = styled.div``;
@@ -158,6 +159,7 @@ const Cart = () => {
           tokenId: stripeToken.id,
           amount: 500,
         });
+        removeProduct();
         navigate("/success", {
           stripeData: res.data,
           products: cart,
@@ -175,10 +177,6 @@ const Cart = () => {
         <Title>YOUR BAG</Title>
         <Top>
           <TopButton>CONTINUSE SHOPPING</TopButton>
-          <TopTexts>
-            <TopText>Shopping Bag (2)</TopText>
-            <TopText>Your Wishlist (4)</TopText>
-          </TopTexts>
           <TopButton type="filled">CHECKOUT NOW</TopButton>
         </Top>
         <Bottom>
